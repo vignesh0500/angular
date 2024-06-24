@@ -1,0 +1,37 @@
+<body class="d-flex   justify-content-center align-items-center">
+    <div class="regsiter-border rounded-3 mx-5 py-5 bg-transparent">
+       <form #f="ngForm" novalidate (ngSubmit)="f.form.valid&&onsubmit()">
+         <div class="mx-lg-5 mx-3 ">
+          <h2 class="text-center text-white">Register Now</h2>
+          <div class="input-box mt-3">
+            <input type="text" placeholder="Fullname" name="name" class=" input-css rounded-4 px-3 border-0 bg-transparent w-100" [(ngModel)]="formdata.name" #name="ngModel" required>
+            <br><span class="text-danger" *ngIf="this.submit&&name.errors?.['required']">
+              Name is required
+            </span>
+          </div>
+          <div class="input-box mt-3">
+             <input type="email" placeholder="Username" name="email" fromControlName="email"  class="input-css rounded-4 px-3 border-0 bg-transparent w-100"  [(ngModel)]="formdata.email" #email="ngModel" required/>
+             <br><span class="text-danger" *ngIf="this.submit&&email.errors?.['required']" >
+              Email is required
+            </span>
+          </div>
+           <div class="input-box mt-3">
+            <input type="password" placeholder="password"name="password" class=" input-css rounded-4 px-3 border-0 bg-transparent w-100" [(ngModel)]="formdata.password" #password="ngModel" required  minlength="8">
+            <br><span class="text-danger" *ngIf="this.submit&&password.errors?.['required']">
+               password is required
+            </span>
+            <br><span class="text-danger" *ngIf="this.submit&&password.errors?.['minlength']">
+              minlength 8 characters
+            </span>
+          </div>
+          <div class="input-box ">
+            <span class="text-danger" *ngIf="this.errorMessage">
+              <p [innerText]="this.errorMessage"></p>
+            </span>
+          </div>
+          <button class="w-100 btn bg-white fw-bold rounded-4 mt-1"(click)="submit=true">Login</button>
+          <p class="mt-3 text-white" >Already have account ? please <a  routerLink="/login">login</a></p> 
+        </div>
+       </form>
+    </div>  
+</body>

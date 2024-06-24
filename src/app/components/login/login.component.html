@@ -1,0 +1,31 @@
+
+<body class="d-flex   justify-content-center align-items-center">
+    <div class="login-border rounded-3 mx-5 py-5 bg-transparent">
+       <form #f="ngForm" novalidate (ngSubmit)="f.form.valid&&onSubmit()">
+         <div class="mx-lg-5 mx-3 ">
+          <h2 class="text-center text-white">Login Now</h2>
+          <div class="fileld mt-3">
+             <input type="email" placeholder="Email " name="email"
+             class="input-css rounded-4 px-3 border-0 bg-transparent w-100" [(ngModel)]="formdata.email" #email="ngModel" required/>
+              <br><span *ngIf="this.submit&&email.errors?.['required']" class="text-danger" >
+                Email is required
+             </span>
+          </div>
+           <div class="input-box mt-3">
+            <input type="password"   name="password"  placeholder="password" class=" input-css rounded-4 px-3 border-0 bg-transparent w-100" [(ngModel)]="formdata.password" #password="ngModel" required>
+             <br><span *ngIf="this.submit&&password.errors?.['required']" class="text-danger" >
+              Password is required
+             </span>
+          </div>
+          <div class="input-box mt-3">
+            <span class="text-danger" *ngIf="this.errorMessage">
+              <p [innerText]="this.errorMessage"></p>
+            </span>
+          </div>
+          <button class="w-100 btn bg-white fw-bold rounded-4 "   value="Login"  (click)="submit=true">Login</button>
+          <p class="text-white mt-3 ">Create new account ? please<a  routerLink="/register">Register</a></p> 
+        </div>
+       </form>
+    </div>
+  
+</body>

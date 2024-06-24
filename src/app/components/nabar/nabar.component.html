@@ -1,0 +1,41 @@
+<nav class="navbar header-bg navbar-expand-lg bg-body-tertiary header">
+    <div class="container-fluid">
+         <a class="navbar-brand " href="#"><img src="./img/Component 1.png"  alt="" class="logo-img-sm"></a>
+         <button class="navbar-toggler text-white" type="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+         <h6 class="fs-1"><i class=" fa-solid fa-bars"></i></h6>
+         </button>
+      
+         <div class="offcanvas offcanvas-end " data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title text-white" id="offcanvasWithBothOptionsLabel" >Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body ">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav-bar-menu   ">
+            
+            <ng-container *ngIf="this.auth.isAuthenticated();then authenticated;else notauthenticated">
+
+            </ng-container>
+            <ng-template #notauthenticated>
+                 <li class="nav-item  mt-3 me-4">
+                    <a class="nav-link active nav-bar-menu  " aria-current="page" href="" routerLink="/res"><i class=" fa-solid fa-house"></i> Redister</a>
+                  </li>
+                  <li class="nav-item mt-lg-3 me-4">
+                    <a class="nav-link nav-bar-menu  " href="" routerLink="/login"><i class="fa-solid fa-heart"></i> Login</a>
+                  </li>
+            </ng-template>
+            <ng-template #authenticated>
+                <li class="nav-item   me-4">
+                    <a class="nav-link active nav-bar-menu text-white" aria-current="page" href="/" routerLink="/Home"><i class=" fa-solid fa-house"></i>Home</a>
+                  </li>
+                  <li class="nav-item  me-4">
+                    <a class="nav-link nav-bar-menu  text-white" href="" (click)="logout()"><i class="fa-solid fa-heart"></i> logout</a>
+                  </li>
+            </ng-template>
+          
+          </ul> 
+        </div>
+         </div>
+    
+    </div>
+  </nav>
