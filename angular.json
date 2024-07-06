@@ -18,8 +18,8 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "docs",
-            "index": "src/index.html , docs/index.html",
-            "main": "src/main.ts ,docs/main.3c5c60440a87068d.js", 
+            "index": "src/index.html",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
