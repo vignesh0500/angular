@@ -7,6 +7,10 @@ import { NabarComponent } from './components/nabar/nabar.component';
 
 const routes: Routes = [
   {
+    path:'',
+    component: RegisterComponent
+  },
+  {
     path:'home',
     component: HomeComponent
   },
